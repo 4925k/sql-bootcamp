@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    container_name: sql-bootcamp
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=example
+    volumes:
+      - type: bind
+        source: ./data/postgres
+        target: /var/lib/postgresql/data
