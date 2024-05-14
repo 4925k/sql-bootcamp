@@ -1,9 +1,16 @@
 -- creating a table
-create table if not exists :table_name
+-- not null values
+-- default values
+-- primary keys (cannot be null)
+-- serial -> auto increment value
+create table if not exists employees
 (
-    username   varchar(15) not null,
-    content    varchar(140) not null,
-    favourites integer not null default 0
+    id        serial primary key,
+    last_name text not null,
+    first_name text not null,
+    middle_name text,
+    age int not null ,
+    current_status text not null default 'employed'
 );
 
 -- show tables
