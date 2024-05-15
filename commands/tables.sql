@@ -30,7 +30,7 @@ values ('muffin', 11);
 -- insert multiple data into table
 insert into dogs (name, age)
 values ('goldie', 3),
-       ('punte', 5);
+       ('punted', 5);
 
 -- get all data from table
 select * from dogs;
