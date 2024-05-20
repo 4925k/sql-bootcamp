@@ -38,3 +38,23 @@ select upper('postgres');
 select lower('POSTGRES');
 
 -- https://www.postgresql.org/docs/9.1/functions-string.html -- OTHER STRING FUNCTIONS
+
+
+-- exercises
+select upper(reverse('why does my cat look at me with such hatred'));
+select replace(title, ' ', '->') as title from books;
+select author_fname as forwards, reverse(author_fname) as backwards from books;
+select upper(concat(author_fname, ' ', author_lname)) as "full name in caps" from books;
+select concat(title, ' was released in ', released_year) as blurb from books;
+select title, char_length(title) as character_count from books;
+select
+    concat(substr(title, 1, 10), '...') as short_title,
+    concat(author_lname, ',', author_fname) as author,
+    concat(stock_quantity, ' in stock')
+from
+    books
+where
+    released_year = 2001;
+
+
+
