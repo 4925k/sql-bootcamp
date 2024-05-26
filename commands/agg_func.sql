@@ -47,3 +47,37 @@ select author_lname, sum(pages) from books group by author_lname;
 select avg(released_year) from books;
 select avg(pages) from books;
 select released_year, avg(stock_quantity) from books group by released_year;
+
+-- EXERCISES
+-- total number of books
+select count(*) from books;
+-- how many books for released each year
+select count(*), released_year from books group by released_year;
+-- total number of books in stock
+select sum(stock_quantity) from books;
+-- avg release year for each author
+select
+    concat(author_fname, ' ', author_lname) as author,
+    avg(released_year)
+from
+    books
+group by author_fname, author_lname;
+-- name of the author with the longest book
+select
+    concat(author_fname, ' ', author_lname) as fullname
+from books
+where book_id = (
+    select book_id from books order by pages DESC LIMIT 1
+    );
+
+-- get number of books and average pages for all years
+select
+    released_year as year,
+    count(*) as "# books",
+    avg(pages) as "avg pages"
+from
+    books
+GROUP BY
+    released_year
+ORDER BY
+    year;
