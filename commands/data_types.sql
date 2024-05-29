@@ -26,3 +26,9 @@ VALUES (
         '10:20:30',
         '2004-01-01 10:20:30'
        );
+
+-- GET CURRENT DATE AND TIME, SELECT PART OF TIME
+select current_date;
+select current_time;
+select now();
+select date_part('year', now());
