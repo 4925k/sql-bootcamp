@@ -8,7 +8,7 @@ CREATE TABLE codes (
 create table family (
     father text,
     children smallint
-)
+);
 
 -- DATE TIME
 create table people (
@@ -21,7 +21,7 @@ create table people (
 insert into
     people (name, birthdate, birth_time, birth_datetime)
 VALUES (
-        'Dameon',
+        'Daemon',
         '2000-01-01',
         '10:20:30',
         '2004-01-01 10:20:30'
@@ -31,4 +31,4 @@ VALUES (
 select current_date;
 select current_time;
 select now();
-select date_part('year', now());
+select date_part('year', now();
