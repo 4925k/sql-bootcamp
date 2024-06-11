@@ -27,3 +27,22 @@ join orders on customers.id = orders.customer_id
 group by first_name, last_name
 order by total;
 
+-- LEFT JOIN
+select first_name, last_name, order_date, amount from customers
+left join orders on customers.id = orders.customer_id
+
+-- LEFT JOIN with GROUP BY
+select first_name,
+       last_name,
+       coalesce(sum(amount), 0),
+       count(order_date) as numOfOrders
+from
+    customers
+left join
+        orders on customers.id = orders.customer_id
+group by
+    first_name, last_name;
+
+-- RIGHT JOIN
+select order_date, amount, first_name, last_name from orders
+right join customers on orders.customer_id = customers.id;
