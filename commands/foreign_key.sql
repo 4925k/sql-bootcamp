@@ -10,7 +10,7 @@ create table if not exists orders (
     customer_id int,
     order_date date,
     amount decimal(8, 2),
-    foreign key (customer_id) references customers(id)
+    foreign key (customer_id) references customers(id) on delete cascade
 );
 
 INSERT INTO customers (first_name, last_name, email)
