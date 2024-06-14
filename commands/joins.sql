@@ -29,7 +29,7 @@ order by total;
 
 -- LEFT JOIN
 select first_name, last_name, order_date, amount from customers
-left join orders on customers.id = orders.customer_id
+left join orders on customers.id = orders.customer_id;
 
 -- LEFT JOIN with GROUP BY
 select first_name,
@@ -59,7 +59,7 @@ create table papers (
     grade int,
     student_id int,
     foreign key (student_id) references students(id)
-)
+);
 
 INSERT INTO students (first_name) VALUES
                                       ('Caleb'), ('Samantha'), ('Raj'), ('Carlos'), ('Lisa');

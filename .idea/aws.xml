@@ -4,6 +4,7 @@
     <option name="activeRegion" value="ap-southeast-2" />
     <option name="recentlyUsedProfiles">
       <list>
+        <option value="profile:assetly-website-dev" />
         <option value="profile:default" />
       </list>
     </option>
@@ -12,5 +13,8 @@
         <option value="ap-southeast-2" />
       </list>
     </option>
+  </component>
+  <component name="explorerToolWindow">
+    <option name="selectedTab" value="Explorer" />
   </component>
 </project>
