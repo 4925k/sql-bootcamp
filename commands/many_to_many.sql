@@ -20,6 +20,29 @@ create table reviews (
     foreign key (reviewer_id) references reviewers(id)
 );
 
+-- ratings for all series
+select title, rating from series
+    join reviews on series.id = reviews.series_id;
+
+-- avg rating for all series from lowest
+select title, round(avg(rating), 2) as avg_rating from series
+    join reviews on series.id = reviews.series_id
+group by title
+order by avg_rating;
+
+-- ratings given by users
+select first_name, last_name, rating from reviewers
+    join reviews on reviewers.id = reviews.reviewer_id
+order by last_name DESC;
+
+-- series with no reviews
+select title from series
+    left join reviews on series.id = reviews.series_id
+where rating is null;
+
+
+
+
 INSERT INTO series (title, released_year, genre) VALUES
      ('Archer', 2009, 'Animation'),
      ('Arrested Development', 2003, 'Comedy'),
