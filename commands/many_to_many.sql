@@ -40,7 +40,47 @@ select title from series
     left join reviews on series.id = reviews.series_id
 where rating is null;
 
+-- avg rating for each genre
+select
+    genre,
+    round(avg(rating),2) as avg_rating
+from
+    series
+join
+    reviews on series.id = reviews.series_id
+group by
+    genre;
 
+-- stats on reviewers
+select
+    first_name,
+    last_name,
+    count(rating) as COUNT,
+    coalesce(round(min(rating), 2), 0) as MIN,
+    coalesce(round(max(rating), 2), 0) as MAX,
+    coalesce(round(avg(rating), 2), 0) as AVG,
+    case
+        when count(rating) = 0 then 'INACTIVE'
+        else 'ACTIVE'
+    end as STATUS
+from
+    reviewers
+left join
+    reviews on reviewers.id = reviews.reviewer_id
+group by
+    first_name, last_name
+order by
+    first_name;
+
+-- title and their rating by each reviewer
+select
+    title,
+    rating,
+    concat(first_name, ' ', last_name) as reviewer
+from
+    reviews
+join reviewers r on reviews.reviewer_id = r.id
+join series s on reviews.series_id = s.id;
 
 
 INSERT INTO series (title, released_year, genre) VALUES
