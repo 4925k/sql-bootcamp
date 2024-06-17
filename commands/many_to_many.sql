@@ -83,6 +83,8 @@ join reviewers r on reviews.reviewer_id = r.id
 join series s on reviews.series_id = s.id;
 
 
+
+
 INSERT INTO series (title, released_year, genre) VALUES
      ('Archer', 2009, 'Animation'),
      ('Arrested Development', 2003, 'Comedy'),
