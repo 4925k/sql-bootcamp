@@ -7,4 +7,4 @@ down:
 	docker compose down
 
 psql:
-	psql -U postgres -h localhost -p 5433
+	PGPASSWORD='example' psql -U postgres -h localhost -p 5433
