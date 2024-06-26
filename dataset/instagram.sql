@@ -44,6 +44,19 @@ create table if not exists follows (
     created_at timestamp default current_timestamp
 );
 
+-- hashtags
+create table if not exists tags (
+    id serial primary key,
+    tag_name varchar(100) not null unique,
+    created_at timestamp default current_timestamp
+);
+
+create table if not exists photo_tags (
+    photo_id int not null references photos(id),
+    tag_id int not null references tags(id),
+    created_at timestamp default current_timestamp,
+    primary key (photo_id, tag_id)
+);
 
 
 
@@ -90,3 +103,15 @@ values
     (3, 1),
     (3, 2);
 
+-- tags data
+insert into tags (tag_name) values ('#nature'), ('#travel'), ('#food');
+
+-- photo tags data
+insert into photo_tags (photo_id, tag_id)
+values
+    (1, 1),
+    (2, 2),
+    (3, 3),
+    (4, 1),
+    (5, 2),
+    (6, 3);
